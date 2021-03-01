@@ -24,5 +24,4 @@ ReactDOM.render(
 - fetch del json --> thunks
 - css
 - header vacío
-
 */
