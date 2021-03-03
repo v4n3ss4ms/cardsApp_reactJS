@@ -1,4 +1,11 @@
 .card {
   display: flex;
   flex-direction: column;
+
+  &__img-wrapper {
+    width: 100%;
+    img  {
+      width: 100%;
+    }
+  }
 }

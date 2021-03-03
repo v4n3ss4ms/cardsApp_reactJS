@@ -39,22 +39,27 @@ function CardDetails() {
   };
 
   return (
-    <div className="contentContainer cardDetails__wrapper">
-      <p>id: {editedCard._id}</p>
-      <p>
-        <label htmlFor="name">name: </label>
-        <input id="name" type="text" value={cardName} onChange={handleNameChange} onBlur={handleNameBlur}/>
-      </p>
-      {errorName ? <p>Name field is required</p> : null}
+    <div className="main-wrapper main-wrapper--details">
+      <div className="card-detail">
+        <h2 className="card-detail__title">id: {editedCard._id}</h2>
+        <div className="card-detail__form">
+          <div className="card-detail__form-item">
+            <label htmlFor="name">name: </label>
+            <input id="name" type="text" value={cardName} onChange={handleNameChange} onBlur={handleNameBlur}/>
+            {errorName ? <div className="msg-error"><p>Name field is required</p></div> : null}
+          </div>
 
-      <p>
-        <label htmlFor="imageUrl">imageUrl: </label>
-        <input id="imageUrl" name="imageUrl" type="text" value={cardImageUrl} onChange={handleImageUrlChange} onBlur={handleImageUrlBlur}/>
-      </p>
-      {errorImageUrl ? <p>ImageUrl field is required</p> : null}
-
-      <button onClick={cancelChanges}>Cancel changes</button>
-      <button onClick={saveChanges}>Save changes</button>
+          <div className="card-detail__form-item">
+            <label htmlFor="imageUrl">imageUrl: </label>
+            <input id="imageUrl" name="imageUrl" type="text" value={cardImageUrl} onChange={handleImageUrlChange} onBlur={handleImageUrlBlur}/>
+            {errorImageUrl ? <div className="msg-error"><p>ImageUrl field is required</p></div> : null}
+          </div>
+          <div className="btn-wrapper">
+            <button  className="btn-action btn-action--save" onClick={saveChanges} disabled={errorName || errorImageUrl ? 'disabled' : null} >Save changes</button>
+            <button className="btn-action btn-action--cancel" onClick={cancelChanges}>Cancel changes</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
