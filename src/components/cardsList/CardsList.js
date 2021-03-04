@@ -13,13 +13,7 @@ function CardsList() {
   }, [filterValue]);
   
   const filterCards = (card) => {
-    let value;
-    if (filterValue.length > 0) {
-      value = card.name.toLowerCase().includes(filterValue) ? card : null;
-    } else {
-      value = card;
-    }
-    return value;
+    return card.name.toLowerCase().includes(filterValue);
   };
 
   const handleChangeFilter = (e) => {
