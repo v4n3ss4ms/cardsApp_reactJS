@@ -34,7 +34,11 @@ Tests are completely necessary. Always.
 
 #### Buttons
 
-Buttons could be a component since they are repeated through the app.
+Button could be a component since there are some of them repeated through the app.
+
+#### Form items
+
+Form item could be a component.
 
 #### Filter
 
