@@ -42,4 +42,4 @@ Filter could be extracted into a component in order to have its logic separated.
 
 #### UI
 
-I'll try to do my best ;)
+I tried to do my best ;)
