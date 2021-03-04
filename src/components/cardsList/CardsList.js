@@ -13,6 +13,7 @@ function CardsList() {
   }, [filterValue]);
   
   const filterCards = (card) => {
+    console.log(filterValue);
     return card.name.toLowerCase().includes(filterValue);
   };
 
@@ -20,7 +21,7 @@ function CardsList() {
     setFilterValue(e.target.value.toLowerCase());
   };
 
-  const handleFilterBlur = () => {
+  const handleFilterBlur = (e) => {
     store.dispatch({ type: FILTER_CARDS, payload: filterValue });
   }
 
