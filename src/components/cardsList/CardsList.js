@@ -24,9 +24,12 @@ function CardsList() {
     store.dispatch({ type: FILTER_CARDS, payload: filterValue });
   }
 
-  store.subscribe(() => {
-    setCardList(store.getState().cards.filter(filterCards));
-  });
+  useEffect(() => {
+    const unsubscribe = store.subscribe(() => {
+      setCardList(store.getState().cards.filter(filterCards));
+    });
+    return unsubscribe;
+  }, []);
 
   return (
     <div className="main-wrapper">

@@ -8,7 +8,7 @@ function CardDetails() {
   const { id } = useParams();
   let history = useHistory();
   const cardList = store.getState().cards;
-  const editedCard = cardList.find((e) => e._id === id);
+  const editedCard = cardList.find((e) => e._id === id) || {name: '', imageUrl: ''};
   const [cardName, setCardName] = useState(editedCard.name);
   const [cardImageUrl, setCardImageUrl] = useState(editedCard.imageUrl);
   const [errorName, setErrorName] = useState(null);
@@ -20,7 +20,6 @@ function CardDetails() {
   const handleImageUrlChange = (e) => {
     setCardImageUrl(e.target.value);
   };
-
   const handleNameBlur = () => {
     const isEmpty = !(cardName.length > 0);
     setErrorName(isEmpty);
@@ -29,7 +28,6 @@ function CardDetails() {
     const isEmpty = !(cardImageUrl.length > 0);
     setErrorImageUrl(isEmpty);
   };
-
   const cancelChanges = () => goBack();
   const goBack = () => history.push("/");
   const saveChanges = () => {
@@ -38,6 +36,10 @@ function CardDetails() {
     goBack();
   };
 
+  if (editedCard.name === '') {
+    goBack();
+  }
+  
   return (
     <div className="main-wrapper main-wrapper--details">
       <div className="card-detail">
@@ -55,7 +57,7 @@ function CardDetails() {
             {errorImageUrl ? <div className="msg-error"><p>ImageUrl field is required</p></div> : null}
           </div>
           <div className="btn-wrapper">
-            <button  className="btn-action btn-action--primary" onClick={saveChanges} disabled={errorName || errorImageUrl ? 'disabled' : null} >Save changes</button>
+            <button  className="btn-action btn-action--primary" onClick={saveChanges} disabled={(cardName !== '' && cardImageUrl !=='') ? null : 'disabled'} >Save changes</button>
             <button className="btn-action btn-action--secondary" onClick={cancelChanges}>Cancel changes</button>
           </div>
         </div>
