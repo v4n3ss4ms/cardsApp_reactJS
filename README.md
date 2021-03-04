@@ -23,3 +23,23 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Nice to have
+
+### Tests
+
+Tests are completely necessary. Always.
+
+### New components
+
+#### Buttons
+
+Buttons could be a component since they are repeated through the app.
+
+#### Filter
+
+Filter could be extracted into a component in order to have its logic separated.
+
+#### UI
+
+I'll try to do my best ;)
