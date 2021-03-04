@@ -1,60 +1,57 @@
 :root {
-    --c-primary: #0D95CF;
-    --c-secondary: #DEE7EF;
-    --c-tertiary: #548CA9;
-  
-    --c-edit: #5EB482;
-    --c-edit-dark: #4c936a;
-    --c-remove: #FFBABA;
-    --c-remove-dark: #f79191;
-    --c-white: #fff;
-  }
-  
-  
-  .main-wrapper {
-    padding: 20px;
-    background-color:var(--c-secondary);
-  
-    &--details {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh
-    }
-  }
-  
-  .btn-action {
-    border: 1px solid transparent;
-    box-shadow: none;
-    border-radius: 4px;
-    font-size: 14px;
-    padding: 15px;
-    font-weight: bold;
-    &--remove,
-    &--cancel {
-      background-color:var(--c-remove);
-      border-color: var(--c-remove-dark);
-    }
-  
-    &--edit,
-    &--save {
-      background-color:var(--c-edit);
-      border-color: var(--c-edit-dark);
-      color: var(--c-white)
-    }
-  }
-  
-  .msg-error {
-    background-color:var(--c-remove);
-    border-left: 4px solid var(--c-remove-dark);
-    margin-top: 10px;
-    padding-left: 10px;
-  }
-  
-  .btn-wrapper {
+  --c-primary: #0d95cf;
+  --c-secondary: #dee7ef;
+  --c-tertiary: #548ca9;
+
+  --c-edit: #5eb482;
+  --c-edit-dark: #4c936a;
+  --c-remove: #ffbaba;
+  --c-remove-dark: #f79191;
+  --c-white: #fff;
+}
+
+.main-wrapper {
+  padding: 20px;
+  background-color: var(--c-secondary);
+
+  &--details {
     display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
+}
+
+.btn-action {
+  border: 1px solid transparent;
+  box-shadow: none;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 15px;
+  font-weight: bold;
+  &--secondary {
+    background-color: var(--c-remove);
+    border-color: var(--c-remove-dark);
+  }
+
+  &--primary {
+    background-color: var(--c-edit);
+    border-color: var(--c-edit-dark);
+    color: var(--c-white);
+  }
+}
+
+.msg-error {
+  background-color: var(--c-remove);
+  border-left: 4px solid var(--c-remove-dark);
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+}

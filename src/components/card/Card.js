@@ -19,14 +19,14 @@ function Cards({ card }) {
   };
   return (
     <div className="card">
-      <div className="img-wrapper">
+      <div className="card__img-wrapper">
         <img src={card.imageUrl} alt={card.name} />
       </div>
       <div className="btn-wrapper">
-        <button className="btn-action btn-action--edit" onClick={editCard}>
+        <button className="btn-action btn-action--primary" onClick={editCard}>
           Edit
         </button>
-        <button className="btn-action btn-action--remove" onClick={removeCard}>
+        <button className="btn-action btn-action--secondary" onClick={removeCard}>
           Remove
         </button>
       </div>

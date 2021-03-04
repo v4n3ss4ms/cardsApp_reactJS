@@ -55,8 +55,8 @@ function CardDetails() {
             {errorImageUrl ? <div className="msg-error"><p>ImageUrl field is required</p></div> : null}
           </div>
           <div className="btn-wrapper">
-            <button  className="btn-action btn-action--save" onClick={saveChanges} disabled={errorName || errorImageUrl ? 'disabled' : null} >Save changes</button>
-            <button className="btn-action btn-action--cancel" onClick={cancelChanges}>Cancel changes</button>
+            <button  className="btn-action btn-action--primary" onClick={saveChanges} disabled={errorName || errorImageUrl ? 'disabled' : null} >Save changes</button>
+            <button className="btn-action btn-action--secondary" onClick={cancelChanges}>Cancel changes</button>
           </div>
         </div>
       </div>
