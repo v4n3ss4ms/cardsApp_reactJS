@@ -5,29 +5,18 @@ import "./CardsList.scss";
 import Card from "../card/Card";
 
 function CardsList() {
-  const [cardList, setCardList] = useState(store.getState().cards);
   const [filterValue, setFilterValue] = useState(store.getState().filter);
+  const [cardList, setCardList] = useState(store.getState().filteredCards);
   
-  useEffect(()=>{
-    setCardList(store.getState().cards.filter(filterCards));
-  }, [filterValue]);
-  
-  const filterCards = (card) => {
-    console.log(filterValue);
-    return card.name.toLowerCase().includes(filterValue);
-  };
-
   const handleChangeFilter = (e) => {
-    setFilterValue(e.target.value.toLowerCase());
+    const text = e.target.value.toLowerCase();
+    setFilterValue(text);
+    store.dispatch({ type: FILTER_CARDS, payload: text });
   };
-
-  const handleFilterBlur = (e) => {
-    store.dispatch({ type: FILTER_CARDS, payload: filterValue });
-  }
 
   useEffect(() => {
     const unsubscribe = store.subscribe(() => {
-      setCardList(store.getState().cards.filter(filterCards));
+      setCardList(store.getState().filteredCards);
     });
     return unsubscribe;
   }, []);
@@ -36,7 +25,7 @@ function CardsList() {
     <div className="main-wrapper">
       <div className="cardsFilter__wrapper">
         <label htmlFor="filter">Search by name: </label>
-        <input id="filter" type="text" value={filterValue} onChange={handleChangeFilter} onBlur={handleFilterBlur}/>
+        <input id="filter" type="text" value={filterValue} onChange={handleChangeFilter} />
       </div>
       <div className="cardsList__wrapper">
         {cardList.length > 0
